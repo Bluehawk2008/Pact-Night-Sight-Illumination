@@ -10,7 +10,7 @@ using GHPC.State;
 using PactNightSightIllumination;
 using HarmonyLib;
 
-[assembly: MelonInfo(typeof(PactNightSights), "Pact Night Sight Illumination", "1.0.0", "Bluehawk")]
+[assembly: MelonInfo(typeof(PactNightSights), "Pact Night Sight Illumination", "1.0.1", "Bluehawk")]
 [assembly: MelonGame("Radian Simulations LLC", "GHPC")]
 
 namespace PactNightSightIllumination
@@ -42,6 +42,7 @@ namespace PactNightSightIllumination
 
             foreach (Vehicle vic in list)
             {
+                if (vic.WeaponsManager == null) { continue; }
                 FireControlSystem fcs = vic.WeaponsManager.Weapons[0].FCS;
                 if (fcs.NightOptic == null) { continue; }                
                 UsableOptic nightOptic = fcs.NightOptic;
